@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>INFINITY CORE GAME V0.5</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="overlay">
+    <div class="container">
+      <div class="update-note">
+  <strong>Daily Note:</strong> today i was lazy so i did nothing lol
+</div>
+
+      <h1>INFINITY CORE GAME</h1>
+      <h2>VERSION V0.5 IN PROGRESS</h2>
+      <p class="subtitle">"ICG V0.5 - FAIL TO MEET THE QUOTA AND GET FIRED"</p>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress" id="progress">
+            <!-- Bubbles -->
+            <span class="bubble"></span>
+            <span class="bubble"></span>
+            <span class="bubble"></span>
+            <span class="bubble"></span>
+            <span class="bubble"></span>
+            <span class="bubble"></span>
+          </div>
+        </div>
+        <p class="progress-text" id="progress-text">Loading...</p>
+      </div>
+
+      <div class="info-panel">
+        <h3>FEATURING</h3>
+        <ul>
+          <li>- BRAND NEW MAP</li>
+          <li>- BRAND NEW EVENTS</li>
+          <li>- BETTER GRAPHICS</li>
+          <li>- PERFORMANCE BOOST?!</li>
+        </ul>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 Infinity Power Core</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Animate progress bar
+    const progress = document.getElementById("progress");
+    const progressText = document.getElementById("progress-text");
+    let percent = 0;
+    const target = 29; // Update this with real progress value
+
+    const interval = setInterval(() => {
+      if (percent >= target) {
+        clearInterval(interval);
+      } else {
+        percent++;
+        progress.style.width = percent + "%";
+        progressText.textContent = percent + "% Complete";
+      }
+    }, 25);
+  </script>
+</body>
+</html>
