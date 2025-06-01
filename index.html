@@ -6,30 +6,49 @@
   <title>INFINITY CORE GAME V0.5</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <div class="overlay">
-    <div class="container">
-      <div class="update-note">
-  <strong>Daily Note:</strong> today i was lazy so i did nothing lol
-</div>
 
+<body>
+  <div class="falling-symbols">
+    <span>✦</span>
+    <span>✧</span>
+    <span>✩</span>
+    <span>✪</span>
+    <span>✦</span>
+    <span>✧</span>
+    <span>✩</span>
+    <span>✪</span>
+    <span>✦</span>
+    <span>✧</span>
+  </div>
+
+  <div class="decorations">
+    ✦ ✧ ✩ ✪
+  </div>
+  
+  <div class="overlay">
+    <div class="container animate">
       <h1>INFINITY CORE GAME</h1>
-      <h2>VERSION V0.5 IN PROGRESS</h2>
+      <h2>PROGRESS BAR</h2>
       <p class="subtitle">"ICG V0.5 - FAIL TO MEET THE QUOTA AND GET FIRED"</p>
 
       <div class="progress-wrapper">
         <div class="progress-bar">
-          <div class="progress" id="progress">
-            <!-- Bubbles -->
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-            <span class="bubble"></span>
-          </div>
+          <div class="progress" id="progress"></div>
         </div>
         <p class="progress-text" id="progress-text">Loading...</p>
+      </div>
+
+      <div class="update-note">
+        <strong>Update Note:</strong> Did some work today but just a little
+      </div>
+
+      <div style="margin: 20px 0;">
+        <button id="motivation-btn" style="padding: 10px 20px; font-size: 1.1em; cursor: pointer; border-radius: 8px; border: none; background: #ad2d4b; color: white; box-shadow: 0 0 10px #ff4d6d;">
+          MOTIVATION BUTTON
+        </button>
+        <div id="motivation-counter" style="margin-top: 10px; font-size: 1.2em; color: #ff708d;">
+          Motivation: 0
+        </div>
       </div>
 
       <div class="info-panel">
@@ -48,14 +67,17 @@
     </div>
   </div>
 
-  <script>
-    // Animate progress bar
-    const progress = document.getElementById("progress");
-    const progressText = document.getElementById("progress-text");
-    let percent = 0;
-    const target = 30; // Update this with real progress value
+  <!-- Audio element outside the script -->
+  <audio id="click-sound" src="nice.mp3" preload="auto"></audio>
 
-    const interval = setInterval(() => {
+  <script>
+    // Progress bar animation
+    let progress = document.getElementById("progress");
+    let progressText = document.getElementById("progress-text");
+    let percent = 0;
+    let target = 65;
+
+    let interval = setInterval(() => {
       if (percent >= target) {
         clearInterval(interval);
       } else {
@@ -64,6 +86,21 @@
         progressText.textContent = percent + "% Complete";
       }
     }, 25);
+
+    // Motivation button logic
+    let motivationCount = 0;
+    const motivationBtn = document.getElementById("motivation-btn");
+    const motivationCounter = document.getElementById("motivation-counter");
+    const clickSound = document.getElementById("click-sound");
+
+    motivationBtn.addEventListener("click", () => {
+      motivationCount++;
+      motivationCounter.textContent = `Motivation: ${motivationCount}`;
+
+      // Play click sound
+      clickSound.currentTime = 0;
+      clickSound.play();
+    });
   </script>
 </body>
 </html>
